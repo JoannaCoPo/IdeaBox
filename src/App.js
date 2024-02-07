@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Ideas from './Ideas';
 import './App.css';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
  return (
   <main className='App'>
     <h1>IdeaBox</h1>
-    <p>Hi!</p>
+    <Ideas name='friend'/>
+    <Ideas name='buddy'/>
   </main>
  )
 }
