@@ -9,13 +9,14 @@ function App() {
     { id: 3, title: 'Double Investigation', description: 'Hire two private investigators to investigate each other' },
 ]
 
-  const [ideas, setIdeas] = useState([sillyIdeas])
+  const [ideas, setIdeas] = useState(sillyIdeas)
+  // debugger;
  
  return (
   <main className='App'>
     <h1>IdeaBox</h1>
-    <Ideas name='friend'/>
-    <Ideas name='buddy'/>
+    {!ideas.length && <h2>No ideas yet -- add some!</h2>}
+    <Ideas ideas={ideas}/>
   </main>
  )
 }
