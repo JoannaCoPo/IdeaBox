@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import Ideas from './Ideas';
 import './App.css';
+import Form from './Form';
+import Ideas from './Ideas';
+import { useState } from 'react'
 
 function App() {
   const sillyIdeas = [
@@ -10,15 +11,26 @@ function App() {
 ]
 
   const [ideas, setIdeas] = useState(sillyIdeas)
-  // debugger;
- 
- return (
-  <main className='App'>
-    <h1>IdeaBox</h1>
-    {!ideas.length && <h2>No ideas yet -- add some!</h2>}
-    <Ideas ideas={ideas}/>
-  </main>
- )
+  
+  // callback functions
+  function addIdea(newIdea) {
+    setIdeas([...ideas, newIdea])
+  }
+
+  function deleteIdea(id) {
+    console.log(id);
+    const filteredIdeas = ideas.filter(idea => idea.id !== id)
+    setIdeas(filteredIdeas)
+  }
+// debugger;
+  return(
+    <main className='App'>
+        <h1>IdeaBox</h1>
+        <p>Hi!</p>
+        <Form addIdea={addIdea} />
+        <Ideas ideas={ideas} deleteIdea={deleteIdea}/>
+    </main>
+  )
 }
 
 export default App;

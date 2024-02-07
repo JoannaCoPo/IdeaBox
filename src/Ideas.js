@@ -1,23 +1,23 @@
-import Card from './Card';
 import './Ideas.css';
+import Card from "./Card"
 
-function Ideas({ ideas }) {
+function Ideas({ ideas, deleteIdea }){
   const ideaCards = ideas.map(idea => {
     return (
-      <Card 
+      <Card
         title={idea.title}
         description={idea.description}
         id={idea.id}
         key={idea.id}
+        deleteIdea={deleteIdea}
       />
     )
   })
 
   return (
     <div className='ideas-container'>
-     {ideaCards}
+      {ideaCards}
     </div>
   )
 }
-
 export default Ideas;
